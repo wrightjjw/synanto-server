@@ -53,7 +53,7 @@ app.post("/db/event", (request, response) => {
     if (request.body.password === config.password) {
         let db = new sqlite.Database("data.db");
         db.run(`INSERT INTO Event (name, desc, host, startDate) \
-                VALUES (${request.body.name}, ${request.body.desc}, ${request.body.date}, ${request.body.date});`);
+                VALUES ("${request.body.name}", "${request.body.desc}", ${request.body.host}, "${request.body.date}");`);
     }
 })
 
